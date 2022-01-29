@@ -20,6 +20,7 @@ function IndexerInfoModalContent(props) {
     language,
     indexerUrls,
     protocol,
+    capabilities,
     onModalClose
   } = props;
 
@@ -51,8 +52,38 @@ function IndexerInfoModalContent(props) {
             title={translate('Language')}
             data={language ?? '-'}
           />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('RawSearchSupported')}
+            data={capabilities.supportsRawSearch ? translate('Yes') : translate('No')}
+          />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('SearchTypes')}
+            data={capabilities.search.length === 0 ? translate('NotSupported') : capabilities.search[0]}
+          />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('TVSearchTypes')}
+            data={capabilities.tv.length === 0 ? translate('NotSupported') : capabilities.tv.join(', ')}
+          />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('MovieSearchTypes')}
+            data={capabilities.movie.length === 0 ? translate('NotSupported') : capabilities.movie.join(', ')}
+          />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('BookSearchTypes')}
+            data={capabilities.book.length === 0 ? translate('NotSupported') : capabilities.book.join(', ')}
+          />
+          <DescriptionListItem
+            descriptionClassName={styles.description}
+            title={translate('MusicSearchTypes')}
+            data={capabilities.music.length === 0 ? translate('NotSupported') : capabilities.music.join(', ')}
+          />
 
-          <DescriptionListItemTitle>Indexer Site</DescriptionListItemTitle>
+          <DescriptionListItemTitle>{translate('IndexerSite')}</DescriptionListItemTitle>
           <DescriptionListItemDescription>
             <Link to={indexerUrls[0]}>{indexerUrls[0]}</Link>
           </DescriptionListItemDescription>
@@ -76,6 +107,7 @@ IndexerInfoModalContent.propTypes = {
   language: PropTypes.string.isRequired,
   indexerUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
   protocol: PropTypes.string.isRequired,
+  capabilities: PropTypes.object.isRequired,
   onModalClose: PropTypes.func.isRequired
 };
 

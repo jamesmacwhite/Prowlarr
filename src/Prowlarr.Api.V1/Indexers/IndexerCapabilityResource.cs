@@ -10,6 +10,12 @@ namespace Prowlarr.Api.V1.Indexers
         public int? LimitsMax { get; set; }
         public int? LimitsDefault { get; set; }
         public List<IndexerCategory> Categories { get; set; }
+        public bool SupportsRawSearch { get; set; }
+        public List<SearchParam> Search { get; set; }
+        public List<TvSearchParam> Tv { get; set; }
+        public List<MovieSearchParam> Movie { get; set; }
+        public List<MusicSearchParam> Music { get; set; }
+        public List<BookSearchParam> Book { get; set; }
     }
 
     public static class IndexerCapabilitiesResourceMapper
@@ -25,7 +31,13 @@ namespace Prowlarr.Api.V1.Indexers
             {
                 LimitsMax = model.LimitsMax,
                 LimitsDefault = model.LimitsDefault,
-                Categories = model.Categories.GetTorznabCategoryTree()
+                Categories = model.Categories.GetTorznabCategoryTree(),
+                SupportsRawSearch = model.SupportsRawSearch,
+                Search = model.SearchParams,
+                Tv = model.TvSearchParams,
+                Movie = model.MovieSearchParams,
+                Music = model.MusicSearchParams,
+                Book = model.BookSearchParams
             };
         }
 
