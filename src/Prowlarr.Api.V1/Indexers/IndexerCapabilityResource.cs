@@ -11,11 +11,11 @@ namespace Prowlarr.Api.V1.Indexers
         public int? LimitsDefault { get; set; }
         public List<IndexerCategory> Categories { get; set; }
         public bool SupportsRawSearch { get; set; }
-        public List<SearchParam> Search { get; set; }
-        public List<TvSearchParam> Tv { get; set; }
-        public List<MovieSearchParam> Movie { get; set; }
-        public List<MusicSearchParam> Music { get; set; }
-        public List<BookSearchParam> Book { get; set; }
+        public List<SearchParam> SearchParams { get; set; }
+        public List<TvSearchParam> TvSearchParams { get; set; }
+        public List<MovieSearchParam> MovieSearchParams { get; set; }
+        public List<MusicSearchParam> MusicSearchParams { get; set; }
+        public List<BookSearchParam> BookSearchParams { get; set; }
     }
 
     public static class IndexerCapabilitiesResourceMapper
