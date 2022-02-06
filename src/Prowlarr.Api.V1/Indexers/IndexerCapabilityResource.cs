@@ -33,11 +33,11 @@ namespace Prowlarr.Api.V1.Indexers
                 LimitsDefault = model.LimitsDefault,
                 Categories = model.Categories.GetTorznabCategoryTree(),
                 SupportsRawSearch = model.SupportsRawSearch,
-                Search = model.SearchParams,
-                Tv = model.TvSearchParams,
-                Movie = model.MovieSearchParams,
-                Music = model.MusicSearchParams,
-                Book = model.BookSearchParams
+                SearchParams = model.SearchParams,
+                TvSearchParams = model.TvSearchParams,
+                MovieSearchParams = model.MovieSearchParams,
+                MusicSearchParams = model.MusicSearchParams,
+                BookSearchParams = model.BookSearchParams
             };
         }
 
