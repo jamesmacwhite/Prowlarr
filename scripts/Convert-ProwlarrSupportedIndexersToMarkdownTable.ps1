@@ -216,11 +216,11 @@ foreach ($indx in $indexer_obj)
         Language              = $indx.language
         Description           = $($indx.Description.Replace($markdown_escape_regex, $markdown_escape_regex_rep))
         'Supports Raw Search' = $indx.capabilities.supportsRawSearch.ToString()
-        'Search Types'        = Invoke-SearchReplace($indx.capabilities.search)
-        'TV Search Types'     = Invoke-SearchReplace($indx.capabilities.tv)
-        'Movie Search Types'  = Invoke-SearchReplace($indx.capabilities.movie)
-        'Music Search Types'  = Invoke-SearchReplace($indx.capabilities.music)
-        'Book Search Types'   = Invoke-SearchReplace($indx.capabilities.book)
+        'Search Types'        = Invoke-SearchReplace($indx.capabilities.SearchParams)
+        'TV Search Types'     = Invoke-SearchReplace($indx.capabilities.TvSearchParams)
+        'Movie Search Types'  = Invoke-SearchReplace($indx.capabilities.MovieSearchParams)
+        'Music Search Types'  = Invoke-SearchReplace($indx.capabilities.MusicSearchParams)
+        'Book Search Types'   = Invoke-SearchReplace($indx.capabilities.BookSearchParams)
     }
 }
 ## ToDo Test these after fixing above
